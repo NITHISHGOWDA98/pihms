@@ -28,7 +28,7 @@ export const Main = () => {
 
   const toggleDropdown = (moduleName) => {
     setDropdownStatus((prevStatus) => ({
-      ...prevStatus,
+      prevStatus,
       [moduleName]: !prevStatus[moduleName],
     }));
   };

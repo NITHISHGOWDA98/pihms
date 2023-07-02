@@ -1,91 +1,108 @@
-
 .maincontainer {
-    display: flex;
-    height: 100vh;
-  }
-  
-  .leftcontainer {
-    width: 15vw;
-    height: fit-content;
-    background-color: #1e1e2d;
-    color: white;
-  }
-  .leftcontainerheader{
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-    font-size: 25px;
-    border-bottom: 1px dashed #393945;
-  }
-  .modulelist{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-  }
-  /* .modules {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    width: 15vw;
-    border: 1px solid white;
-    margin: 10px;
-    border-radius: 20px;
-  } */
-  
-  .modules {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 13vw;
-    font-size: medium;
-    background-color: #1e1e2d;
-    color: #9d9da6;
-  
-  }
-  
-  .modules-p {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 10px;
-    cursor: pointer;
-  }
-  
-  .modules-p:hover {
-    border-color: #2c2c42;
-    color: white;
-  }
-  
-  .modules-icon {
-    margin-right: 13px;
-  }
-  
-  .modules-title {
-    display: flex;
-    flex-grow: 1;
-    align-items: center;
-  }
-  
-  .dropdown-icon {
-    margin-left: 1vw;
-  }
-  .dropdown-content{
-    display: flex;
-  }
-  
-  
-  
-  .rightcontainer {
-    flex: 1;
-   
-background-color: #f4f6f9;
-border-radius: 20px;
-width: 18vw;
-height: 100vh;
-  }
-  
-  
+  display: flex;
+  height: 100vh;
+}
+
+.leftcontainer {
+  width: 15vw;
+  height: 100vh;
+  background-color: #1e1e2d;
+  color: white;
+  overflow-y: auto;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  padding-right: 8px;
+  box-sizing: border-box;
+ 
+}
+
+/* For WebKit based browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 8px;
+ /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #1e1e2d; 
+  /* Background color of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3e3b4c;
+  border-radius: 4px; 
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+  height: 10px;
+}
+
+
+.leftcontainerheader {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  font-size: 25px;
+  border-bottom: 1px dashed #393945;
+}
+
+.modulelist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.modules {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 13vw;
+  font-size: medium;
+  background-color: #1e1e2d;
+  color: #9d9da6;
+}
+
+.modules-p {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.modules-p:hover {
+  border-color: #2c2c42;
+  color: white;
+}
+
+.modules-icon {
+  margin-right: 13px;
+}
+
+.modules-title {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.dropdown-icon {
+  margin-left: 1vw;
+}
+
+.dropdown-content {
+  display: flex;
+}
+
+.rightcontainer {
+ 
+  flex: 1;
+  background-color: #f4f6f9;
+  border-radius: 20px;
+  height: 100vh;
+  overflow-y: auto;
+ 
+ 
+}
