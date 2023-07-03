@@ -99,10 +99,9 @@
 .rightcontainer {
  
   flex: 1;
-  background-color: #f4f6f9;
-  border-radius: 20px;
+  background-color: white;
   height: 100vh;
   overflow-y: auto;
- 
+ box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
  
 }
