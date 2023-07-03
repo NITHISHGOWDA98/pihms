@@ -60,16 +60,19 @@ export const Patient = () => {
             <FontAwesomeIcon icon={faReply} /> Back
           </li>
         </ul>
-        <form className="add_btn mt-2 mb-2" onSubmit={handleSubmit}>
+       
+      </div>
+
+      <form className="patientform" onSubmit={handleSubmit}>
             <input
               type="text"
               value={inputPatientID}
               onChange={handleInputChange}
               placeholder="Enter Patient ID"
+              className="patientinput"
             />
-            <button type="submit">Submit</button>
+            <button type="submit" className="patientinputbutton">Submit</button>
           </form>
-      </div>
       <div className="paintentcontent">
      
           <table className="table">

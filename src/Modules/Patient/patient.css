@@ -65,3 +65,23 @@
     
 
   }
+.patientform{
+    display: flex;
+    justify-content: end;
+    margin-right: 80px;
+    margin-top: 20px;
+    align-items: center;
+}
+.patientinput{
+    background-color: #F9F9F9;
+    border-color:#F9F9F9;
+    color:#5E6278;
+    transition: color 0.2s ease;
+    border-radius: 10px;
+    margin-right: 20px;
+
+
+}
+.patientinputbutton{
+    
+}
