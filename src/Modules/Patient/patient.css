@@ -1,7 +1,7 @@
 .paintentmaincontianer{
     display: flex;
-    flex-direction: row;
-    width: 100%;
+    flex-direction: column;
+    
     background-color: white;
     height: 100vh;
     flex: 1;
@@ -12,18 +12,55 @@
     flex-direction: row;
     padding: 20px;
     height: 10vh;
-    width: 85vw;
+    width: 100%;
     background-color: #f4f6f9;
-    margin:20px;
+   
     border-radius: 10px;
 }
-ul{
+.patientheaderlist{
     display: flex;
     flex-direction: row;
     list-style: none;
 }
-li{
+.patientli{
     margin: 10px 20px;
     font-weight: bold;
     color: #007bff;
 }
+.paintentcontent{
+    display: flex;
+    height: 70vh;
+  margin: 20px;
+    width: 97%;
+    background-color: #f4f6f9;
+    border-radius: 10px;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-header {
+  background-color: #333;
+  color: #fff;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table tbody tr:hover {
+  background-color: #ddd;
+}
+.table>:not(caption)>*>* {
+    background-color: #f4f6f9 !important;
+    
+
+  }
