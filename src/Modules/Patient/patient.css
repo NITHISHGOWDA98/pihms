@@ -53,12 +53,25 @@
     align-items: center;
 }
 .patientinput{
-    background-color: #F9F9F9;
+    background-color: #dee1e6;
     border-color:#F9F9F9;
     color:#5E6278;
+    height: 39px;
     transition: color 0.2s ease;
     border-radius: 10px;
     margin-right: 20px;
+    border: none;
 
 
+}
+.patientinput:focus {
+    outline: none;
+    border-color: #ccc;
+}
+.patientinputbutton{
+    background-color: #007bff;
+    border-radius: 10px;
+    border: none;
+    height: 37px;
+    color: white;
 }
