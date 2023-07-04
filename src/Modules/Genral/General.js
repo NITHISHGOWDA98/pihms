@@ -1,7 +1,8 @@
 import React from 'react'
+import { Header } from '../../NavBar/Header'
 
 export const General = () => {
   return (
-    <div>General</div>
+    <div><Header/></div>
   )
 }

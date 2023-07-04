@@ -7,27 +7,7 @@
     flex: 1;
 
 }
-.patientheader{
-    display: flex;
-    flex-direction: row;
-    padding: 20px;
-    height: 7vh;
-    width: 100%;
-    background-color: #f4f6f9;
-   
-    border-radius: 10px;
-}
-.patientheaderlist{
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    align-items: center;
-}
-.patientli{
-    margin: 10px 20px;
-    font-weight: bold;
-    color: #007bff;
-}
+
 .paintentcontent{
     display: flex;
     height: 70vh;
@@ -67,7 +47,7 @@
   }
 .patientform{
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     margin-right: 80px;
     margin-top: 20px;
     align-items: center;
@@ -81,7 +61,4 @@
     margin-right: 20px;
 
 
-}
-.patientinputbutton{
-    
 }

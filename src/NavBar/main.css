@@ -10,7 +10,7 @@
   color: white;
   overflow-y: auto;
   overflow-x: hidden; /* Hide horizontal scrollbar */
-  padding-right: 8px;
+ 
   box-sizing: border-box;
  
 }

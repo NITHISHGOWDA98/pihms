@@ -1,7 +1,8 @@
 import React from 'react'
+import { Header } from '../../NavBar/Header'
 
 export const OpBilling = () => {
   return (
-    <div>OpBilling</div>
+    <div><Header/></div>
   )
 }
