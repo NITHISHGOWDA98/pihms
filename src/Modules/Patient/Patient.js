@@ -1,4 +1,4 @@
-import React , { useState } from "react";
+import React, { useState } from "react";
 import "./patient.css";
 
 import { Header } from "../../NavBar/Header";
@@ -19,7 +19,6 @@ export const Patient = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-        
         },
         body: JSON.stringify(requestBody),
       });
@@ -47,51 +46,48 @@ export const Patient = () => {
 
   return (
     <div className="paintentmaincontianer">
-     
-      <Header/>
-       
-     
+      <Header />
 
       <form className="patientform" onSubmit={handleSubmit}>
-            <input
-              type="text"
-              value={inputPatientID}
-              onChange={handleInputChange}
-              placeholder="Enter Patient ID"
-              className="patientinput"
-            />
-            <button type="submit" className="patientinputbutton">Submit</button>
-          </form>
-      <div className="paintentcontent">
-     
+        <input
+          type="text"
+          value={inputPatientID}
+          onChange={handleInputChange}
+          placeholder="Enter Patient ID"
+          className="patientinput"
+        />
+        <button type="submit" className="patientinputbutton">Submit</button>
+      </form>
+
+      <div className="patientcontent">
+        <div className="table-wrapper">
           <table className="table">
-      <thead>
-        <tr className="table-header">
-          <th scope="col">Sl No</th>
-          <th scope="col">Patient No</th>
-          <th scope="col">Patient Name</th>
-          <th scope="col">Display Name</th>
-          <th scope="col">Gender</th>
-          <th scope="col">Date Of Birth</th>
-        </tr>
-      </thead>
-      <tbody>
-        {patients.map((patient, index) => (
-          <tr key={index}>
-            <td>{index + 1}</td>
-            <td>{patient.patientNumber}</td>
-            <td>{patient.firstName}</td>
-            <td>{patient.displayName}</td>
-            <td>{patient.gender}</td>
-            <td>{patient.dateOfBirth}</td>
-            <td>{/* Action buttons here */}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-        
+            <thead>
+              <tr className="table-header">
+                <th scope="col">Sl No</th>
+                <th scope="col">Patient No</th>
+                <th scope="col">Patient Name</th>
+                <th scope="col">Display Name</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Date Of Birth</th>
+              </tr>
+            </thead>
+            <tbody>
+              {patients.map((patient, index) => (
+                <tr key={index}>
+                  <td>{index + 1}</td>
+                  <td>{patient.patientNumber}</td>
+                  <td>{patient.firstName}</td>
+                  <td>{patient.displayName}</td>
+                  <td>{patient.gender}</td>
+                  <td>{patient.dateOfBirth}</td>
+                  <td>{/* Action buttons here */}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-      </div>
-   
+    </div>
   );
 };

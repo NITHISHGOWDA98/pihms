@@ -1,29 +1,68 @@
-.paintentmaincontianer{
-    display: flex;
-    flex-direction: column;
-    
-    background-color: white;
-    height: 100vh;
-    flex: 1;
-
+.paintentmaincontianer {
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f6f9;
+  height: 100vh;
+  flex: 1;
 }
 
-.paintentcontent{
-    display: flex;
-    height: 70vh;
-  margin: 20px;
-    width: 97%;
-    background-color: #f4f6f9;
-    border-radius: 10px;
+.patientcontent {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 80px 0px 80px;
+  background-color: white;
+  border-radius: 10px;
+  height: 70vh;
+  overflow: auto;
 }
+
+.patientform {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px;
+  align-items: center;
+}
+
+.patientinput {
+  background-color: white;
+  border-color: #f9f9f9;
+  color: #5e6278;
+  height: 39px;
+  transition: color 0.2s ease;
+  border-radius: 10px;
+  margin-left: 80px;
+  border: none;
+}
+
+.patientinput:focus {
+  outline: none;
+  border-color: #ccc;
+}
+
+.patientinputbutton {
+  background-color: #007bff;
+  border-radius: 10px;
+  border: none;
+  height: 37px;
+  margin-left: 20px;
+  color: white;
+}
+
+.table-wrapper {
+  flex: 1;
+  overflow: auto;
+  padding: 10px;
+}
+
 .table {
   width: 100%;
   border-collapse: collapse;
 }
 
 .table-header {
-  background-color: #333;
+  background-color: #ffffff;
   color: #fff;
+  border-radius: 10px;
 }
 
 .table th,
@@ -31,47 +70,28 @@
   padding: 10px;
   text-align: left;
   border-bottom: 1px solid #ccc;
+  word-wrap: break-word;
 }
 
-.table tbody tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
+
 
 .table tbody tr:hover {
   background-color: #ddd;
 }
-.table>:not(caption)>*>* {
-    background-color: #f4f6f9 !important;
-    
 
-  }
-.patientform{
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 80px;
-    margin-top: 20px;
-    align-items: center;
+.table thead {
+  display: table-header-group;
 }
-.patientinput{
-    background-color: #dee1e6;
-    border-color:#F9F9F9;
-    color:#5E6278;
-    height: 39px;
-    transition: color 0.2s ease;
-    border-radius: 10px;
-    margin-right: 20px;
-    border: none;
 
-
+.table thead th,
+.table thead td {
+  border-bottom: none;
 }
-.patientinput:focus {
-    outline: none;
-    border-color: #ccc;
+.table thead th  {
+  border: none;
+  color: #b5b5c3;
 }
-.patientinputbutton{
-    background-color: #007bff;
-    border-radius: 10px;
-    border: none;
-    height: 37px;
-    color: white;
+.table tbody td {
+  border: none;
+  color: rgb(55, 51, 51);
 }
