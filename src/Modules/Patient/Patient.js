@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./patient.css";
-import { faHistory, faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import { faHistory, faAngleDown, faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Header } from "../../NavBar/Header";
 
@@ -10,6 +10,8 @@ export const Patient = () => {
   const [inputPatientID, setInputPatientID] = useState("");
   const [isSecondAPIDisplayed, setIsSecondAPIDisplayed] = useState(false);
   const [selectedPatientData, setSelectedPatientData] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState('');
 
   useEffect(() => {
     fetchPatientList();
@@ -91,10 +93,52 @@ export const Patient = () => {
     fetchPatientDetails();
   };
 
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleOptionClick = (optionValue) => {
+    setSelectedOption(optionValue);
+    setIsOpen(false);
+  };
+
   return (
     <div className="paintentmaincontianer">
       <Header />
       <div className="belowheader">
+        <div className="belowheaderfilter">
+
+          <div className="filter">
+            <div className="selected-option" onClick={toggleDropdown}>
+            <FontAwesomeIcon icon={faHistory} />
+              {selectedOption ? (
+                <div>
+                 
+                  {selectedOption}
+                </div>
+              ) : (
+                'Recent'
+              )}
+              <FontAwesomeIcon icon={faChevronDown} style={{ marginLeft: '10px' }} />
+            </div>
+
+            {isOpen && (
+              <div className="options">
+               
+                <div className="option" onClick={() => handleOptionClick('Option 1')}>
+                 
+                  Option 1
+                </div>
+                <div className="option" onClick={() => handleOptionClick('Option 2')}>
+                  Option 2
+                </div>
+                <div className="option" onClick={() => handleOptionClick('Option 3')}>
+                  Option 3
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
         <form className="patientform" onSubmit={handleSubmit}>
           <input
             type="text"
@@ -107,16 +151,7 @@ export const Patient = () => {
             Search
           </button>
         </form>
-        <div className="belowheaderfilter">
-          <div className="filter">
-            <FontAwesomeIcon icon={faHistory} style={{ marginRight: "10px" }} />{" "}
-            Recent{" "}
-            <FontAwesomeIcon
-              icon={faAngleDown}
-              style={{ marginLeft: "10px", marginTop: "4px" }}
-            />
-          </div>
-        </div>
+
       </div>
 
       <div className="patientcontent">
@@ -124,11 +159,11 @@ export const Patient = () => {
           <table className="table">
             <thead>
               <tr className="table-header">
-                <th scope="col">Id</th>
+                <th scope="col">Sl No</th>
                 <th scope="col">Patient No</th>
                 <th scope="col">Patient Name</th>
-                <th scope="col">Display Name</th>
-                <th scope="col">Gender</th>
+                <th scope="col">Date of Registration</th>
+                <th scope="col">Phone No</th>
                 <th scope="col">Date Of Birth</th>
               </tr>
             </thead>
@@ -140,9 +175,9 @@ export const Patient = () => {
                 >
                   <td>{patient.id}</td>
                   <td>{patient.patientNumber}</td>
-                  <td>{patient.firstName}</td>
-                  <td>{patient.displayName}</td>
-                  <td>{patient.gender}</td>
+                  <td>{patient.honorific} {patient.firstName} - {patient.age} {patient.ageUnit} {patient.gender}</td>
+                  <td>{patient.createdDateTime}</td>
+                  <td>{patient.phonePrimary}</td>
                   <td>{patient.dateOfBirth}</td>
                 </tr>
               ))}
@@ -151,9 +186,9 @@ export const Patient = () => {
                 <tr>
                   <td>{selectedPatientData.id}</td>
                   <td>{selectedPatientData.patientNumber}</td>
-                  <td>{selectedPatientData.firstName}</td>
-                  <td>{selectedPatientData.displayName}</td>
-                  <td>{selectedPatientData.gender}</td>
+                  <td>{selectedPatientData.honorific} {selectedPatientData.firstName} - {selectedPatientData.age} {selectedPatientData.ageUnit}</td>
+                  <td>{selectedPatientData.createdDateTime}</td>
+                  <td>{selectedPatientData.phonePrimary}</td>
                   <td>{selectedPatientData.dateOfBirth}</td>
                 </tr>
               )}

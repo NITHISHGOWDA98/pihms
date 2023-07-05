@@ -28,8 +28,8 @@
 .belowheaderfilter{
   flex: 1 1;
   display: flex;
-  justify-content: center;
- 
+  justify-content: flex-start;
+ margin-left: 50px;
   align-items: center;
   margin-top: 20px;
   
@@ -37,24 +37,51 @@
   border-radius: 6px;
 }
 
-.filter{
-  display: flex;
-  height: 4vh;
-  width: 13vh;
-  background-color: white;
-  border-radius: 10px;
-  align-items: center;
-  justify-content: center;
-  color:#636373;
-  transition: background-color 0.2s ease, color 0.2s ease;
-  cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
+.filter {
+  position: relative;
+  display: inline-block;
 }
-.filter:hover {
-  /* background-color: #007bff; */
+
+.selected-option {
+  padding: 0;
+    border: none;
+    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    height: 4vh;
+    align-items: center;
+    justify-content: space-around;
+    width: 10vw;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.selected-option:hover{
   color: #007bff;
 }
+.options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.option {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.option:hover {
+  background-color: #f0f0f0;
+}
+
 .patientform {
   flex: 1;
   display: flex;
