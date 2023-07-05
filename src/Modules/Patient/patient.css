@@ -61,8 +61,7 @@
   color: #007bff;
 }
 .options {
-  align-items: center;
-  justify-content: center;
+  
   position: absolute;
   top: 100%;
   left: 0;
@@ -82,6 +81,9 @@
   padding: 10px;
   cursor: pointer;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .option:hover {
@@ -172,6 +174,8 @@
   border: none;
   color: rgb(55, 51, 51);
 }
+
+
 .highlighted {
   background-color: #f2f2f2;
   /* Add any other styling for the highlighted state */
