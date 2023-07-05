@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./patient.css";
-import { faHistory, faAngleDown, faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faHistory,faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Header } from "../../NavBar/Header";
 
@@ -79,7 +79,7 @@ export const Patient = () => {
       }
     } else {
       // No input provided, display first API data
-      setSelectedPatient(null && inputPatientID === ' ');
+      setSelectedPatient(inputPatientID === ' ');
       setIsSecondAPIDisplayed(false);
     }
   };
@@ -127,13 +127,13 @@ export const Patient = () => {
                
                 <div className="option" onClick={() => handleOptionClick('Option 1')}>
                  
-                  Option 1
+                Recent 100
                 </div>
                 <div className="option" onClick={() => handleOptionClick('Option 2')}>
-                  Option 2
+                Recent 500
                 </div>
                 <div className="option" onClick={() => handleOptionClick('Option 3')}>
-                  Option 3
+                Recent 1000
                 </div>
               </div>
             )}
