@@ -18,6 +18,7 @@ import { OpBilling } from "./Modules/OpBilling/OpBilling";
 import { Pharmacy } from "./Modules/Pharmacy/Pharmacy";
 import { Security } from "./Modules/Securtiy/Security";
 import { Staff } from "./Modules/Staff/Staff";
+import { NewPatient } from "./Modules/Patient/NewPatient";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
             <Route path="/pharmacy" element={<Pharmacy/>} />
             <Route path="/security" element={<Security/>} />
             <Route path="/staff" element={<Staff />} />
+            <Route path="/patient/newpatient" element={<NewPatient />} />
 
 
           </Route>

@@ -20,6 +20,7 @@ import {
   faMoneyBill,
   faChevronDown,
   faChevronUp,
+
 } from "@fortawesome/free-solid-svg-icons";
 
 export const Main = () => {
@@ -28,25 +29,51 @@ export const Main = () => {
 
   const toggleDropdown = (moduleName) => {
     setDropdownStatus((prevStatus) => ({
-      prevStatus,
+      ...prevStatus,
       [moduleName]: !prevStatus[moduleName],
     }));
   };
-
+  
   const handleNavigation = (path, moduleName) => {
     toggleDropdown(moduleName);
     navigate(path);
   };
+  
 
   const renderDropdownContent = (moduleName) => {
-    return (
-      dropdownStatus[moduleName] && (
+   
+  switch (moduleName) {
+    case "Appointment":
+      return (
+        dropdownStatus[moduleName] && (
         <div className="dropdown-content">
-          <p>This is the dropdown content.</p>
+          <p onClick={() => handleNavigation("/appointment/new")}>New Appointment</p>
+          <p onClick={() => handleNavigation("/appointment/view")}>View Appointments</p>
         </div>
-      )
-    );
-  };
+      ));
+    case "Communication":
+      return (
+        dropdownStatus[moduleName] && (
+        <div className="dropdown-content">
+          <p onClick={() => handleNavigation("/communication/compose")}>Compose Message</p>
+          <p onClick={() => handleNavigation("/communication/inbox")}>Inbox</p>
+          <p onClick={() => handleNavigation("/communication/sent")}>Sent Messages</p>
+        </div>
+      ));
+      case "Patient":
+        return (
+          dropdownStatus[moduleName] && (
+          <div className="dropdown-content">
+            <p onClick={() => handleNavigation("/patient/newpatient")}>New Patient</p>
+           
+          </div>
+        ));
+    // Add more cases for other modules
+
+    default:
+      return null;
+  }
+};
 
   const Module = (path, moduleName, icon) => (
     <div className="modules">

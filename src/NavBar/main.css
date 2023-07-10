@@ -94,6 +94,7 @@
 
 .dropdown-content {
   display: flex;
+  flex-direction: column;
 }
 
 .rightcontainer {
