@@ -29,10 +29,12 @@ export const Staff = () => {
 
       try {
         const requestBody = {
-          m_Filter: {
+          m_FilterOptions: {
+           
             m_Type: 5,
             m_Limit: patientLimit,
             m_OrderBy: "id",
+            m_Search:"id"
           },
         };
 
@@ -180,7 +182,7 @@ export const Staff = () => {
                 <th scope="col">Sl No</th>
                 <th scope="col">Staff Name</th>
                 <th scope="col">Staff No</th>
-                <th scope="col">Registration Date</th>
+                <th scope="col"> Date of join</th>
                 
                
                 <th scope="col">

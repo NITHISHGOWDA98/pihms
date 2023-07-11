@@ -13,11 +13,10 @@ import { Header } from "../../NavBar/Header";
 import Footer from "../../NavBar/Footer";
 
 export const Patient = () => {
-  const [patients, setPatients] = useState([]);
-  const [selectedPatient, setSelectedPatient] = useState(null);
+  const [patientslist, setPatientslist] = useState([]);
   const [inputPatientID, setInputPatientID] = useState("");
   const [isSecondAPIDisplayed, setIsSecondAPIDisplayed] = useState(false);
-  const [selectedPatientData, setSelectedPatientData] = useState(null);
+  const [inputPatientData, setinputPatientData] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
   const [patientLimit, setPatientLimit] = useState("50");
@@ -47,7 +46,7 @@ export const Patient = () => {
         if (response.ok) {
           const data = await response.json();
           console.log("Fetched patient list:", data);
-          setPatients(data.ml_Patient);
+          setPatientslist(data.ml_Patient);
           setIsLoading(false); 
         } else {
           console.error("Failed to fetch patient list.");
@@ -80,7 +79,7 @@ export const Patient = () => {
         if (response.ok) {
           const data = await response.json();
           console.log("Fetched patient details:", data);
-          setSelectedPatientData(data.m_Patient);
+          setinputPatientData(data.m_Patient);
           setIsSecondAPIDisplayed(true);
           setIsLoading(false); 
         } else {
@@ -90,7 +89,7 @@ export const Patient = () => {
         console.error("Error occurred while fetching patient details:", error);
       }
     } else {
-      setSelectedPatient(null);
+     
       setIsSecondAPIDisplayed(false);
     }
   };
@@ -187,10 +186,9 @@ export const Patient = () => {
             </thead>
             <tbody>
               {!isSecondAPIDisplayed &&
-                patients.map((patient) => (
+                patientslist.map((patient) => (
                   <tr
                     key={patient.id}
-                    onClick={() => setSelectedPatient(patient)}
                     className="table-row"
                   >
                     <td>{patient.id}</td>
@@ -220,18 +218,18 @@ export const Patient = () => {
                   </tr>
                 ))}
 
-              {isSecondAPIDisplayed && selectedPatientData && (
+              {isSecondAPIDisplayed && inputPatientData && (
                 <tr className="table-row">
-                  <td>{selectedPatientData.id}</td>
-                  <td>{selectedPatientData.patientNumber}</td>
+                  <td>{inputPatientData.id}</td>
+                  <td>{inputPatientData.patientNumber}</td>
                   <td>
-                    {selectedPatientData.honorific}{" "}
-                    {selectedPatientData.firstName} - {selectedPatientData.age}{" "}
-                    {selectedPatientData.ageUnit}
+                    {inputPatientData.honorific}{" "}
+                    {inputPatientData.firstName} - {inputPatientData.age}{" "}
+                    {inputPatientData.ageUnit}
                   </td>
-                  <td>{selectedPatientData.createdDateTime}</td>
-                  <td>{selectedPatientData.phonePrimary}</td>
-                  <td>{selectedPatientData.dateOfBirth}</td>
+                  <td>{inputPatientData.createdDateTime}</td>
+                  <td>{inputPatientData.phonePrimary}</td>
+                  <td>{inputPatientData.dateOfBirth}</td>
                 </tr>
               )}
             </tbody>
@@ -241,14 +239,7 @@ export const Patient = () => {
         
       </div>
 
-      {isSecondAPIDisplayed && selectedPatient && (
-        <div className="patientdetails">
-          <h2>Patient Details</h2>
-          <div>Selected Patient ID: {selectedPatient.id}</div>
-          <div>Selected Patient Name: {selectedPatient.displayName}</div>
-        </div>
-      )}
-
+     
       <Footer />
     </div>
   );
