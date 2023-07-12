@@ -68,7 +68,7 @@ export const Main = () => {
            
           </div>
         ));
-    // should add more cases for other modules incomplete cases due to less inforamtion
+    // should add more cases for other modules incomplete cases due to less inforamtion1
 
     default:
       return null;

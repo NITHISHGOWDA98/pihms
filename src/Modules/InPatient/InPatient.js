@@ -18,7 +18,7 @@ import "./inpatient.css";
 
 export const InPatient = () => {
   const [patients, setPatients] = useState([]);
-   const [selectedPatient, setSelectedPatient] = useState(null);
+  const [selectedPatient, setSelectedPatient] = useState(null);
   const [inputInPatientID, setInputInPatientID] = useState("");
   const [isSecondAPIDisplayed, setIsSecondAPIDisplayed] = useState(false);
   const [selectedPatientData, setSelectedPatientData] = useState(null);
@@ -52,7 +52,7 @@ export const InPatient = () => {
           const data = await response.json();
           console.log("Fetched patient list:", data);
           setPatients(data.ml_IPCaseList);
-          setIsLoading(false); 
+          setIsLoading(false);
         } else {
           console.error("Failed to fetch patient list.");
         }
@@ -86,7 +86,7 @@ export const InPatient = () => {
           console.log("Fetched patient details:", data);
           setSelectedPatientData(data.m_IPCase);
           setIsSecondAPIDisplayed(true);
-          setIsLoading(false); 
+          setIsLoading(false);
         } else {
           console.error("Failed to fetch patient details.");
         }
@@ -177,107 +177,160 @@ export const InPatient = () => {
         {isLoading ? (
           <div className="loading">Loading...</div>
         ) : (
-        <div className="table-wrapper">
-          <table className="table">
-            <thead className="sticky-header">
-              <tr className="table-header">
-                <th scope="col">Sl No</th>
-                <th scope="col">IP Case</th>
-                <th scope="col">Patient Name</th>
-                <th scope="col">Phone No</th>
-                <th scope="col">Bill Type</th>
-                {/* <th scope="col"> Ward Bed</th> */}
-                <th scope="col">
-                  {" "}
-                  <FontAwesomeIcon icon={faRocket} /> Action Buttons
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {!isSecondAPIDisplayed &&
-                patients.map((inpatient) => (
-                  <tr
-                    key={inpatient.id}
-                    onClick={() => setSelectedPatient(inpatient)}
-                    className="table-row"
-                  >
-                    <td>{inpatient.id}</td>
-                    <td>{inpatient.ipCaseNumber}</td>
-                    <td>{inpatient.name}</td>
-                    <td>{inpatient.phone}</td>
-                    <td>{inpatient.billedType}</td>
+          <div className="table-wrapper">
+            <table className="table">
+              <thead className="sticky-header">
+                <tr className="table-header">
+                  <th scope="col">Sl No</th>
+                  <th scope="col">IP Case</th>
+                  <th scope="col">Patient Name</th>
+                  <th scope="col">Phone No</th>
+                  <th scope="col">Bill Type</th>
+                  {/* <th scope="col"> Ward Bed</th> */}
+                  <th scope="col">
+                    {" "}
+                    <FontAwesomeIcon icon={faRocket} /> Action Buttons
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {!isSecondAPIDisplayed &&
+                  patients.map((inpatient) => (
+                    <tr
+                      key={inpatient.id}
+                      onClick={() => setSelectedPatient(inpatient)}
+                      className="table-row"
+                    >
+                      <td>{inpatient.id}</td>
+                      <td>{inpatient.ipCaseNumber}</td>
+                      <td>{inpatient.name}</td>
+                      <td>{inpatient.phone}</td>
+                      <td>{inpatient.billedType}</td>
+                      <td>
+                        <div className="actionbuttons">
+                          <div className="actionbutton">
+                            <FontAwesomeIcon
+                              icon={faFileAlt}
+                              style={{ color: "#007bff" }}
+                            />{" "}
+                            Case Sheet
+                          </div>
+                          <div className="actionbutton">
+                            <FontAwesomeIcon
+                              icon={faTags}
+                              style={{ color: "#007bff" }}
+                            />{" "}
+                            SubTags
+                          </div>
+                          <div className="actionbutton">
+                            <FontAwesomeIcon
+                              icon={faPrescriptionBottleAlt}
+                              style={{ color: "#007bff" }}
+                            />{" "}
+                            Consumables
+                          </div>
+                          <div className="actionbutton">
+                            <FontAwesomeIcon
+                              icon={faReceipt}
+                              style={{ color: "#007bff" }}
+                            />{" "}
+                            IP OP Bills
+                          </div>
+                          <div className="actionbutton">
+                            <FontAwesomeIcon
+                              icon={faMoneyCheckAlt}
+                              style={{ color: "#007bff" }}
+                            />{" "}
+                            Payments
+                          </div>
+                          <div className="actionbutton">
+                            <FontAwesomeIcon
+                              icon={faHospitalUser}
+                              style={{ color: "#007bff" }}
+                            />{" "}
+                            IPBilling
+                          </div>
+                          <div className="actionbutton">
+                            <FontAwesomeIcon
+                              icon={faTag}
+                              style={{ color: "#007bff" }}
+                            />{" "}
+                            Label
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+
+                {isSecondAPIDisplayed && selectedPatientData && (
+                  <tr className="table-row">
+                    <td>{selectedPatientData.id}</td>
+                    <td>{selectedPatientData.ipCaseNumber}</td>
+                    <td>{selectedPatientData.name}</td>
+                    <td>{selectedPatientData.phone}</td>
+                    <td>{selectedPatientData.billedType}</td>
                     <td>
                       <div className="actionbuttons">
                         <div className="actionbutton">
-                          <FontAwesomeIcon icon={faFileAlt} style={{ color: "#007bff" }}/> Case Sheet
+                          <FontAwesomeIcon
+                            icon={faFileAlt}
+                            style={{ color: "#007bff" }}
+                          />{" "}
+                          Case Sheet
                         </div>
                         <div className="actionbutton">
-                          <FontAwesomeIcon icon={faTags} style={{ color: "#007bff" }} /> SubTags
+                          <FontAwesomeIcon
+                            icon={faTags}
+                            style={{ color: "#007bff" }}
+                          />{" "}
+                          SubTags
                         </div>
                         <div className="actionbutton">
-                          <FontAwesomeIcon icon={faPrescriptionBottleAlt} style={{ color: "#007bff" }} />{" "}
+                          <FontAwesomeIcon
+                            icon={faPrescriptionBottleAlt}
+                            style={{ color: "#007bff" }}
+                          />{" "}
                           Consumables
                         </div>
                         <div className="actionbutton">
-                          <FontAwesomeIcon icon={faReceipt} style={{ color: "#007bff" }} /> IP OP Bills
+                          <FontAwesomeIcon
+                            icon={faReceipt}
+                            style={{ color: "#007bff" }}
+                          />{" "}
+                          IP OP Bills
                         </div>
                         <div className="actionbutton">
-                          <FontAwesomeIcon icon={faMoneyCheckAlt} style={{ color: "#007bff" }} /> Payments
+                          <FontAwesomeIcon
+                            icon={faMoneyCheckAlt}
+                            style={{ color: "#007bff" }}
+                          />{" "}
+                          Payments
                         </div>
                         <div className="actionbutton">
-                          <FontAwesomeIcon icon={faHospitalUser} style={{ color: "#007bff" }} /> IPBilling
+                          <FontAwesomeIcon
+                            icon={faHospitalUser}
+                            style={{ color: "#007bff" }}
+                          />{" "}
+                          IPBilling
                         </div>
                         <div className="actionbutton">
-                          <FontAwesomeIcon icon={faTag} style={{ color: "#007bff" }} /> Label
+                          <FontAwesomeIcon
+                            icon={faTag}
+                            style={{ color: "#007bff" }}
+                          />{" "}
+                          Label
                         </div>
                       </div>
                     </td>
                   </tr>
-                ))}
-
-              {isSecondAPIDisplayed && selectedPatientData && (
-                <tr className="table-row">
-                  <td>{selectedPatientData.id}</td>
-                  <td>{selectedPatientData.ipCaseNumber}</td>
-                  <td>{selectedPatientData.name}</td>
-                  <td>{selectedPatientData.phone}</td>
-                  <td>{selectedPatientData.billedType}</td>
-                  <td>
-                  <div className="actionbuttons">
-                        <div className="actionbutton">
-                          <FontAwesomeIcon icon={faFileAlt} style={{ color: "#007bff" }}/> Case Sheet
-                        </div>
-                        <div className="actionbutton">
-                          <FontAwesomeIcon icon={faTags} style={{ color: "#007bff" }} /> SubTags
-                        </div>
-                        <div className="actionbutton">
-                          <FontAwesomeIcon icon={faPrescriptionBottleAlt} style={{ color: "#007bff" }} />{" "}
-                          Consumables
-                        </div>
-                        <div className="actionbutton">
-                          <FontAwesomeIcon icon={faReceipt} style={{ color: "#007bff" }} /> IP OP Bills
-                        </div>
-                        <div className="actionbutton">
-                          <FontAwesomeIcon icon={faMoneyCheckAlt} style={{ color: "#007bff" }} /> Payments
-                        </div>
-                        <div className="actionbutton">
-                          <FontAwesomeIcon icon={faHospitalUser} style={{ color: "#007bff" }} /> IPBilling
-                        </div>
-                        <div className="actionbutton">
-                          <FontAwesomeIcon icon={faTag} style={{ color: "#007bff" }} /> Label
-                        </div>
-                      </div>
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
-        </div>
-         )}
- 
+                )}
+              </tbody>
+            </table>
+          </div>
+        )}
       </div>
-     
-{/* 
+
+      {/* 
       {isSecondAPIDisplayed && selectedPatient && (
         <div className="patientdetails">
           <h2>Patient Details</h2>

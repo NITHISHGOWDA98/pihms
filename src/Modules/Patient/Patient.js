@@ -9,8 +9,10 @@ import {
   faRocket,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {  useNavigate ,Route } from "react-router-dom";
 import { Header } from "../../NavBar/Header";
 import Footer from "../../NavBar/Footer";
+import { PatientDetails } from "./PatientDetails";
 
 export const Patient = () => {
   const [patientslist, setPatientslist] = useState([]);
@@ -22,6 +24,13 @@ export const Patient = () => {
   const [patientLimit, setPatientLimit] = useState("50");
   const [isLoading, setIsLoading] = useState(true);
 
+  <Route path="/patient/patientdetails/:patientId" element={<PatientDetails/>} />
+
+  const navigate = useNavigate();
+  const handleNavigation = (patientId) => {
+   
+    navigate(`/patient/patientdetails/${patientId}`);
+  };
   useEffect(() => {
     const fetchPatientList = async () => {
       const apiUrl = "http://ganga.pihms.co.in/Patient/get_PatientList";
@@ -190,6 +199,8 @@ export const Patient = () => {
                   <tr
                     key={patient.id}
                     className="table-row"
+                    onClick={() => handleNavigation(
+                      patient.id )}
                   >
                     <td>{patient.id}</td>
                     <td>{patient.patientNumber}</td>
