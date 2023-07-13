@@ -1,6 +1,6 @@
 import React from 'react'
 
-const PatientVisit = () => {
+export const PatientVisit = () => {
   return (
     <div>
       hii
@@ -8,4 +8,4 @@ const PatientVisit = () => {
   )
 }
 
-export default PatientVisit
+

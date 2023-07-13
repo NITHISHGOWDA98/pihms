@@ -51,10 +51,18 @@
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     align-items: center;
+    text-decoration: none;
     justify-content: center;
 
 }
 .patientdetailsconatainerform{
   display: flex;
   border: 1px solid black;
+}
+.nav-link {
+  text-decoration: none;
+}
+.patientdetailsconatainerbutton.active {
+  background-color: #007bff;
+  color: white;
 }

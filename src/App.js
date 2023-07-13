@@ -18,11 +18,13 @@ import { OpBilling } from "./Modules/OpBilling/OpBilling";
 import { Pharmacy } from "./Modules/Pharmacy/Pharmacy";
 import { Security } from "./Modules/Securtiy/Security";
 import { Staff } from "./Modules/Staff/Staff";
-import { PatientDetails } from "./Modules/Patient/PatientDetails";
 import { InPatientDetails } from "./Modules/InPatient/InPatientDetails";
 import { OpBillingDetails } from "./Modules/OpBilling/OpBillingDetails";
 import { StaffDetails } from "./Modules/Staff/StaffDetails";
-import PatientVisit from "./Modules/Patient/PatientVisit";
+import {PatientVisit} from "./Modules/Patient/PatientVisit";
+import { PatientDetails } from "./Modules/Patient/PatientDetails";
+import { PatientHistory } from "./Modules/Patient/PatientHistory";
+import { PatientDetailsTab } from "./Modules/Patient/PatientDetailsTab";
 
 function App() {
   return (
@@ -49,13 +51,13 @@ function App() {
             <Route path="/pharmacy" element={<Pharmacy/>} />
             <Route path="/security" element={<Security/>} />
             <Route path="/staff" element={<Staff />} />
-            <Route path="/patient/patientdetails/:patientId" element={<PatientDetails />} >
-            <Route path="patientdetails" element={<PatientDetails />} />
-              
+            <Route path="/patient/patientdetails/:patientId" element={<PatientDetails/>} >
+           
             <Route path="patientvisit" element={<PatientVisit />} />
-              
-              </Route> 
+            <Route path="patienthistory" element={<PatientHistory/>} />
+            <Route path="patientdetailstab" element={<PatientDetailsTab/>} />
 
+          </Route>
             <Route path="/inpatient/inpatientdetails/:inpatientcaseId" element={<InPatientDetails/>} />
             <Route path="/opbilling/opbillingdetails/:opbillid" element={<OpBillingDetails />} />
             <Route path="/staff/staffdetails/:staffid" element={<StaffDetails/>} />
