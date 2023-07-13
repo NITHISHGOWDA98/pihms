@@ -15,6 +15,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./inpatient.css";
+import {  useNavigate ,Route } from "react-router-dom";
+import { InPatientDetails } from "./InPatientDetails";
 
 export const InPatient = () => {
   const [patients, setPatients] = useState([]);
@@ -27,6 +29,12 @@ export const InPatient = () => {
   const [patientLimit, setPatientLimit] = useState("50");
   const [isLoading, setIsLoading] = useState(true);
 
+ <Route path="/inpatient/inpatientdetails/:inpatientcaseId" element={<InPatientDetails/>} />
+  const navigate = useNavigate();
+  const handleNavigation = (inpatientcaseId) => {
+   
+    navigate(`/inpatient/inpatientdetails/${inpatientcaseId}`);
+  };
   useEffect(() => {
     const fetchPatientList = async () => {
       const apiUrl = "http://ganga.pihms.co.in/InPatient/get_IPCaseList";
@@ -198,7 +206,8 @@ export const InPatient = () => {
                   patients.map((inpatient) => (
                     <tr
                       key={inpatient.id}
-                      onClick={() => setSelectedPatient(inpatient)}
+                      onClick={() => handleNavigation(
+                      inpatient.id )}
                       className="table-row"
                     >
                       <td>{inpatient.id}</td>
@@ -330,14 +339,7 @@ export const InPatient = () => {
         )}
       </div>
 
-      {/* 
-      {isSecondAPIDisplayed && selectedPatient && (
-        <div className="patientdetails">
-          <h2>Patient Details</h2>
-          <div>Selected Patient ID: {selectedPatient.id}</div>
-          <div>Selected Patient Name: {selectedPatient.displayName}</div>
-        </div>
-      )} */}
+    
 
       <Footer />
     </div>

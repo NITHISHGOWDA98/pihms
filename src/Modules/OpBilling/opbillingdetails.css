@@ -29,32 +29,4 @@
     
 }
 
-.patientdetailsconatainerbuttons{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin-top: 2vh;
-  
 
-}
-.patientdetailsconatainerbutton{
-    display: flex;
-    flex-direction: column;
-    margin: 1vh;
-    background-color: white;
-    border-radius: 10px;
-    width: 15vw;
-    height: 3vw;
-    color:  #007bff;
-    overflow: auto;
-    transition: background-color 0.2s ease, color 0.2s ease;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    align-items: center;
-    justify-content: center;
-
-}
-.patientdetailsconatainerform{
-  display: flex;
-  border: 1px solid black;
-}

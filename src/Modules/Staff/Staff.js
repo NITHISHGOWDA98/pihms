@@ -9,19 +9,27 @@ import {
   faRocket,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { StaffDetails } from "./StaffDetails";
+import { useNavigate , Route } from "react-router-dom";
 
 export const Staff = () => {
 
     <Header/>
      const [patients, setPatients] = useState([]);
    const [selectedPatient, setSelectedPatient] = useState(null);
-  const [inputInPatientID, setInputInPatientID] = useState("");
+  const [inputstaffID, setInputstaffID] = useState("");
   const [isSecondAPIDisplayed, setIsSecondAPIDisplayed] = useState(false);
   const [selectedPatientData, setSelectedPatientData] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
   const [patientLimit, setPatientLimit] = useState("50");
   const [isLoading, setIsLoading] = useState(true);
+
+  <Route path="/staff/staffdetails/:staffid" element={<StaffDetails/>} />
+  const navigate = useNavigate();
+  const handleNaviagtion = (staffid) =>{
+   navigate(`/staff/staffdetails/${staffid}`)
+  }
 
   useEffect(() => {
     const fetchPatientList = async () => {
@@ -63,12 +71,12 @@ export const Staff = () => {
   }, [patientLimit]);
 
   const fetchPatientDetails = async () => {
-    if (inputInPatientID) {
+    if (inputstaffID) {
       const apiUrl = "http://ganga.pihms.co.in/OPBilling/get_OPBillDetail";
 
       try {
         const requestBody = {
-          m_IPCaseID: inputInPatientID,
+          m_IPCaseID: inputstaffID,
         };
 
         const response = await fetch(apiUrl, {
@@ -98,7 +106,7 @@ export const Staff = () => {
   };
 
   const handleInputChange = (event) => {
-    setInputInPatientID(event.target.value);
+    setInputstaffID(event.target.value);
   };
 
   const handleSubmit = (event) => {
@@ -160,7 +168,7 @@ export const Staff = () => {
         <form className="patientform" onSubmit={handleSubmit}>
           <input
             type="text"
-            value={inputInPatientID}
+            value={inputstaffID}
             onChange={handleInputChange}
             placeholder="Enter Bill Number"
             className="patientinput"
@@ -192,17 +200,17 @@ export const Staff = () => {
             </thead>
             <tbody>
               {!isSecondAPIDisplayed &&
-                patients.map((inpatient) => (
+                patients.map((staff) => (
                   <tr
-                    key={inpatient.id}
-                    onClick={() => setSelectedPatient(inpatient)}
+                    key={staff.id}
+                    onClick={() => handleNaviagtion(staff.id)}
                     className="table-row"
                   >
-                    <td>{inpatient.id}</td>
-                    <td>{inpatient.displayName}</td>
-                    <td>{inpatient.staffNumber}</td>
-                    <td>{inpatient.dateOfJoining}</td>
-                    <td>{inpatient.phonePrimary}</td>
+                    <td>{staff.id}</td>
+                    <td>{staff.displayName}</td>
+                    <td>{staff.staffNumber}</td>
+                    <td>{staff.dateOfJoining}</td>
+                    <td>{staff.phonePrimary}</td>
                    
                   </tr>
                 ))}

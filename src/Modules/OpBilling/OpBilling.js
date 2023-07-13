@@ -9,13 +9,16 @@ import {
   faRocket,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate , Route } from "react-router-dom";
+import { OpBillingDetails } from "./OpBillingDetails";
+
 
 export const OpBilling = () => {
 
     <Header/>
      const [patients, setPatients] = useState([]);
    const [selectedPatient, setSelectedPatient] = useState(null);
-  const [inputInPatientID, setInputInPatientID] = useState("");
+  const [inputopbillID, setInputopbillID] = useState("");
   const [isSecondAPIDisplayed, setIsSecondAPIDisplayed] = useState(false);
   const [selectedPatientData, setSelectedPatientData] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -23,6 +26,13 @@ export const OpBilling = () => {
   const [patientLimit, setPatientLimit] = useState("50");
   const [isLoading, setIsLoading] = useState(true);
 
+            <Route path="/opbilling/opbillingdetails/:opbillid" element={<OpBillingDetails />} />
+             const navigate = useNavigate();
+             const handleNaviagtion = (opbillid) =>{
+              navigate(`/opbilling/opbillingdetails/${opbillid}`)
+             }
+
+            
   useEffect(() => {
     const fetchPatientList = async () => {
       const apiUrl = "http://ganga.pihms.co.in/OPBilling/get_OPBillList";
@@ -61,12 +71,12 @@ export const OpBilling = () => {
   }, [patientLimit]);
 
   const fetchPatientDetails = async () => {
-    if (inputInPatientID) {
+    if (inputopbillID) {
       const apiUrl = "http://ganga.pihms.co.in/OPBilling/get_OPBillDetail";
 
       try {
         const requestBody = {
-          m_IPCaseID: inputInPatientID,
+          m_IPCaseID: inputopbillID,
         };
 
         const response = await fetch(apiUrl, {
@@ -96,7 +106,7 @@ export const OpBilling = () => {
   };
 
   const handleInputChange = (event) => {
-    setInputInPatientID(event.target.value);
+    setInputopbillID(event.target.value);
   };
 
   const handleSubmit = (event) => {
@@ -158,7 +168,7 @@ export const OpBilling = () => {
         <form className="patientform" onSubmit={handleSubmit}>
           <input
             type="text"
-            value={inputInPatientID}
+            value={inputopbillID}
             onChange={handleInputChange}
             placeholder="Enter Bill Number"
             className="patientinput"
@@ -195,21 +205,21 @@ export const OpBilling = () => {
             </thead>
             <tbody>
               {!isSecondAPIDisplayed &&
-                patients.map((inpatient) => (
+                patients.map((opbill) => (
                   <tr
-                    key={inpatient.id}
-                    onClick={() => setSelectedPatient(inpatient)}
+                    key={opbill.id}
+                    onClick={() => handleNaviagtion(opbill.id)}
                     className="table-row"
                   >
-                    <td>{inpatient.id}</td>
-                    <td>{inpatient.billNumber}</td>
-                    <td>{inpatient.patientNumber}</td>
-                    <td>{inpatient.patientName}</td>
-                    <td>{inpatient.billDateTime}</td>
-                    <td>{inpatient.billType}</td>
-                    <td>{inpatient.payableAmount}</td>
-                    <td>{inpatient.balanceAmount}</td>
-                    <td>{inpatient.receivedAmount}</td>
+                    <td>{opbill.id}</td>
+                    <td>{opbill.billNumber}</td>
+                    <td>{opbill.patientNumber}</td>
+                    <td>{opbill.patientName}</td>
+                    <td>{opbill.billDateTime}</td>
+                    <td>{opbill.billType}</td>
+                    <td>{opbill.payableAmount}</td>
+                    <td>{opbill.balanceAmount}</td>
+                    <td>{opbill.receivedAmount}</td>
                     <td>
                       <div className="actionbuttons">
                       
