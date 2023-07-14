@@ -1,0 +1,57 @@
+.containerpatientDetailsTab {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 10px;
+    width: 100%;
+    margin: 0px 51px 0px 33px;
+  }
+
+  .labinp{
+    display: flex;
+    flex-direction:column ;
+  }
+  .input-label{
+    display: flex;
+    width: 10vw;
+    align-items: center;
+   
+    justify-content: flex-start;
+  }
+  
+  .containerpatientDetailsTab form {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    margin: 10px;
+  }
+  
+  
+  .containerpatientDetailsTab .input-text {
+    margin-left: 10px;
+    grid-column: span 1;
+  }
+  
+  .containerpatientDetailsTab .input-label:nth-child(5n),
+  .containerpatientDetailsTab .input-text:nth-child(5n) {
+    grid-column: span 1;
+  }
+  
+  .containerpatientDetailsTab .input-label:nth-child(n + 6),
+  .containerpatientDetailsTab .input-text:nth-child(n + 6) {
+    margin-top: 10px;
+    grid-column: span 1;
+  }
+  .patientinput {
+    background-color: white;
+      border-color: #f9f9f9;
+      color: #5e6278;
+      height: 39px;
+      border-radius: 10px;
+      margin-right: 3px;
+      display: flex;
+      border: none;
+      justify-content: flex-end;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }

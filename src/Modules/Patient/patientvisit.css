@@ -1,0 +1,76 @@
+.patientvisitmainconatainer{
+    display: flex;
+    flex-direction: row;
+
+}
+.patientvisitleftconatainer{
+    display: flex;
+    flex-direction: column;
+    width: 55vw;
+    height: 65vh;
+    background-color: white;
+    overflow-y: auto;
+    margin-left: 20px;
+    margin-bottom: 40px;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+
+
+
+}
+.patientvisitrightconatainer{
+    display: flex;
+    width: 25vw;
+    height: 65vh;
+    background-color: white;
+    overflow-y: auto;
+    margin-left: 20px;
+    margin-bottom: 40px;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+
+}
+.patientvisitleftconatainerheader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3vh;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.patientvisitleftconatainercontent{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+.labinppv{
+    display: flex;
+    flex-direction:row ;
+    margin-bottom: 10px;
+  }
+  .input-labelpv{
+    display: flex;
+    width: 10vw;
+    align-items: center;
+   
+    justify-content: flex-end;
+    margin-right: 5px;
+  }
+
+  .patientinputpv {
+    background-color: white;
+      border-color: #f9f9f9;
+      color: #5e6278;
+      height: 39px;
+      border-radius: 10px;
+      margin-right: 3px;
+      display: flex;
+      outline: none;
+      border: none;
+      width: 100%;
+      justify-content: flex-end;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }

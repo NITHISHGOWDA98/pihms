@@ -4,16 +4,7 @@
     width: 100%;
     height:88vh;
 }
-.patientdetailsconatainerheader{
-    display: flex;
-    flex-direction: row;
-    height: 10vh;
-    width: 100%;
-    background-color: #ef305e;
-    color: black;
-    margin-top: 20px;
-    border-radius: 20px;
-}
+
 .patientdetailsconatainerheader1{
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Display two items per row */
@@ -57,7 +48,7 @@
 }
 .patientdetailsconatainerform{
   display: flex;
-  border: 1px solid black;
+ 
 }
 .nav-link {
   text-decoration: none;
@@ -65,4 +56,17 @@
 .patientdetailsconatainerbutton.active {
   background-color: #007bff;
   color: white;
+}
+.patientdetailsconatainerheadercolumn {
+  padding: 8px;
+}
+
+.patientdetailsconatainerheader {
+  display: flex;
+  flex-direction: row;
+  height: 10vh;
+  width: 100%;
+  background-color: #f4f6f9;
+  color: black;
+  border-radius: 20px;
 }
