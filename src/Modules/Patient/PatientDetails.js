@@ -6,6 +6,11 @@ import "./patientdetails.css";
 import { PatientVisit } from "./PatientVisit";
 import { PatientHistory } from "./PatientHistory";
 import { PatientDetailsTab } from "./PatientDetailsTab";
+import { PatientLabDetails } from "./PatientLabDetails";
+import { PatientBilling } from "./PatientBilling";
+import { PatientInsurance } from "./PatientInsurance";
+import { PatientBirthDetail } from "./PatientBirthDetail";
+import { PatientScanningReport } from "./PatientScanningReport";
 
 export const PatientDetails = () => {
   const { patientId } = useParams();
@@ -101,17 +106,58 @@ export const PatientDetails = () => {
           >
             History
           </NavLink>
+          <NavLink
+            to="patientlabdetails"
+            className={`patientdetailsconatainerbutton ${activeSection === "labdetails" ? "active" : ""
+              }`}
+            onClick={() => handleSectionClick("labdetails")}
+          >
+            Lab Details
+          </NavLink>
+          <NavLink
+            to="patientbilling"
+            className={`patientdetailsconatainerbutton ${activeSection === "billing" ? "active" : ""
+              }`}
+            onClick={() => handleSectionClick("billing")}
+          >
+            Billing
+          </NavLink>
+          <NavLink
+            to="patientinsurance"
+            className={`patientdetailsconatainerbutton ${activeSection === "insurance" ? "active" : ""
+              }`}
+            onClick={() => handleSectionClick("insurance")}
+          >
+            Insurance
+          </NavLink>
 
-          <div className="patientdetailsconatainerbutton">Lab Report</div>
-          <div className="patientdetailsconatainerbutton">Billing</div>
-          <div className="patientdetailsconatainerbutton">Insurance</div>
-          <div className="patientdetailsconatainerbutton">Birth Detail</div>
-          <div className="patientdetailsconatainerbutton">Scanning report</div>
+          <NavLink
+            to="patientbirthdetails"
+            className={`patientdetailsconatainerbutton ${activeSection === "birthdetail" ? "active" : ""
+              }`}
+            onClick={() => handleSectionClick("birthdetail")}
+          >
+            Birth Detail
+          </NavLink>
+
+          <NavLink
+            to="patientscanningreport"
+            className={`patientdetailsconatainerbutton ${activeSection === "scanningreport" ? "active" : ""
+              }`}
+            onClick={() => handleSectionClick("scanningreport")}
+          >
+            Scanning report
+          </NavLink>
         </div>
         <div className="patientdetailsconatainerform">
           {activeSection === "details" && <PatientDetailsTab />}
           {activeSection === "visit" && <PatientVisit />}
           {activeSection === "history" && <PatientHistory />}
+          {activeSection === "labdetails" && <PatientLabDetails/>}
+          {activeSection === "billing" && <PatientBilling/>}
+          {activeSection === "insurance" && <PatientInsurance/>}
+          {activeSection === "birthdetail" && <PatientBirthDetail/>}
+          {activeSection === "scanningreport" && <PatientScanningReport/>}
         </div>
       </div>
       <Footer />

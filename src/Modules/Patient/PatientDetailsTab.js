@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 export const PatientDetailsTab = () => {
   const { patientId } = useParams();
   const [patientData, setPatientData] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+
 
   useEffect(() => {
     const fetchPatientDetails = async () => {
@@ -28,7 +28,7 @@ export const PatientDetailsTab = () => {
           const data = await response.json();
           console.log("Fetched patient details:", data);
           setPatientData(data.m_Patient);
-          setIsLoading(false);
+         
         } else {
           console.error("Failed to fetch patient details.");
         }
@@ -50,9 +50,7 @@ export const PatientDetailsTab = () => {
 
   return (
     <div className="containerpatientDetailsTab">
-      {isLoading ? (
-        <div>Loading...</div>
-      ) : (
+     
         <form className="patientform">
           <div className="labinp">
             <label htmlFor="salutation" className="input-label">
@@ -382,7 +380,7 @@ export const PatientDetailsTab = () => {
             />
           </div>
         </form>
-      )}
+ 
     </div>
   );
 };

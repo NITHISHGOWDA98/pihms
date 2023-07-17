@@ -25,6 +25,10 @@ import {PatientVisit} from "./Modules/Patient/PatientVisit";
 import { PatientDetails } from "./Modules/Patient/PatientDetails";
 import { PatientHistory } from "./Modules/Patient/PatientHistory";
 import { PatientDetailsTab } from "./Modules/Patient/PatientDetailsTab";
+import { PatientLabDetails } from "./Modules/Patient/PatientLabDetails";
+import { PatientBilling } from "./Modules/Patient/PatientBilling";
+import { PatientInsurance } from "./Modules/Patient/PatientInsurance";
+import { PatientBirthDetail } from "./Modules/Patient/PatientBirthDetail";
 
 function App() {
   return (
@@ -55,7 +59,12 @@ function App() {
            
             <Route path="patientvisit" element={<PatientVisit />} />
             <Route path="patienthistory" element={<PatientHistory/>} />
+            <Route path="patientlabdetails" element={<PatientLabDetails/>} />
+            <Route path="patientbilling" element={<PatientBilling/>} />
+            <Route path="patientinsurance" element={<PatientInsurance/>} />
+            <Route path="patientbirthdetails" element={<PatientBirthDetail/>} />
             <Route path="patientdetailstab" element={<PatientDetailsTab/>} />
+            <Route path="patientscanningreport" element={<PatientDetailsTab/>} />
 
           </Route>
             <Route path="/inpatient/inpatientdetails/:inpatientcaseId" element={<InPatientDetails/>} />
