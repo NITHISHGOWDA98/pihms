@@ -192,7 +192,7 @@ export const OpBilling = () => {
                 <th scope="col">Patient No</th>
                 <th scope="col">Patient Name</th>
                 <th scope="col">Bill Date</th>
-                <th scope="col">Bill Type </th>
+                <th scope="col">Payment Mode </th>
                 <th scope="col">Payable</th>
                 <th scope="col">Balance</th>
                 <th scope="col">Recieved</th>
@@ -216,7 +216,7 @@ export const OpBilling = () => {
                     <td>{opbill.patientNumber}</td>
                     <td>{opbill.patientName}</td>
                     <td>{opbill.billDateTime}</td>
-                    <td>{opbill.billType}</td>
+                    <td>{opbill.taxComment}</td>
                     <td>{opbill.payableAmount}</td>
                     <td>{opbill.balanceAmount}</td>
                     <td>{opbill.receivedAmount}</td>

@@ -1,0 +1,81 @@
+.patientvisitmainconatainer{
+    display: flex;
+    flex-direction: row;
+
+}
+.patientvisitleftconatainer{
+    display: flex;
+    flex-direction: column;
+    width: 55vw;
+    height: 65vh;
+    background-color: white;
+    overflow-y: auto;
+    margin-left: 20px;
+    margin-bottom: 40px;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+
+
+
+}
+.patientvisitrightconatainer{
+    display: flex;
+    flex-direction: column;
+    width: 25vw;
+    height: 65vh;
+    background-color: white;
+    overflow-y: auto;
+    margin-left: 20px;
+    margin-bottom: 40px;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+
+}
+.patientvisitleftconatainerheader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3vh;
+    width: 100%;
+    margin-top: 22px;
+}
+
+
+  .patientvisitrightconatainerheader{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 3vh;
+    width: 100%;
+    margin-top: 22px;
+  }
+  .patientvisitrightconatainercontent{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+    margin-top: 20px;
+  
+
+  }
+  .patientbillingheader{
+    display: flex;
+    justify-content: space-around;
+    background-color: #f4f6f9;
+    height: 5vh;
+    align-items: center;
+    margin-top: 10px;
+    
+  }
+  .patientbillingheaderright{
+    display: flex;
+   
+    background-color: #f4f6f9;
+    height: 5vh;
+    align-items: center;
+    margin-top: 10px;
+  }
+  .patientbillingheaderrightbox{
+    border: 1px solid black;
+    height: 10vh;
+  }

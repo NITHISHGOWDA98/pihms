@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, NavLink } from "react-router-dom";
+import { useParams, NavLink, useNavigate } from "react-router-dom";
 import { Header } from "../../NavBar/Header";
 import Footer from "../../NavBar/Footer";
 import "./patientdetails.css";
@@ -18,6 +18,11 @@ export const PatientDetails = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [activeSection, setActiveSection] = useState("details");
 
+  const navigate = useNavigate();
+
+  const handleNavigation = (path) => {
+    navigate(path);
+  }
   useEffect(() => {
     const fetchPatientDetails = async () => {
       const apiUrl = "http://ganga.pihms.co.in/Patient/get_PatientDetail";
@@ -62,6 +67,8 @@ export const PatientDetails = () => {
           {isLoading ? (
             <div>Loading...</div>
           ) : (
+            <div className="patientdetailsconatainerheaderleft" >
+              
             <div className="patientdetailsconatainerheader1">
               <div className="patientdetailsconatainerheadercolumn">
                 Name: {patientData.firstName}
@@ -76,7 +83,19 @@ export const PatientDetails = () => {
                 Phone no: {patientData.phonePrimary}
               </div>
             </div>
+            </div>
           )}
+
+          <div className="patientdetailsconatainerheaderright">
+            
+          <div  className="patientdetailsconatainerheaderright1"   onClick={() => handleNavigation("/patient/opbillnew")} >
+            OP Bill
+            </div>
+            
+          <div  className="patientdetailsconatainerheaderright2">
+            IP Registration
+            </div>
+          </div>
         </div>
         <div className="patientdetailsconatainerbuttons">
 

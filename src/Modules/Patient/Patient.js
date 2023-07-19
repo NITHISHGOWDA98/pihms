@@ -22,15 +22,26 @@ export const Patient = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
   const [patientLimit, setPatientLimit] = useState("50");
+  const [patientDuration, setpatientDuration] = useState("All");
   const [isLoading, setIsLoading] = useState(true);
+
 
   <Route path="/patient/patientdetails/:patientId" element={<PatientDetails/>} />
 
   const navigate = useNavigate();
+  const newpatientnavigate = useNavigate();
   const handleNavigation = (patientId) => {
    
     navigate(`/patient/patientdetails/${patientId}`);
+  
   };
+  const handlePatientNavigation = (path) => {
+   
+    
+    newpatientnavigate(path);
+  };
+
+
   useEffect(() => {
     const fetchPatientList = async () => {
       const apiUrl = "http://ganga.pihms.co.in/Patient/get_PatientList";
@@ -38,9 +49,10 @@ export const Patient = () => {
       try {
         const requestBody = {
           m_FilterOptions: {
-            m_Type: 5,
+            m_Type: 1 ,
             m_Limit: patientLimit,
             m_OrderBy: "id",
+            m_Duration:patientDuration 
           },
         };
 
@@ -116,9 +128,10 @@ export const Patient = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleOptionClick = (limit) => {
+  const handleOptionClick = (limit,days,value) => {
     setPatientLimit(limit);
-    setSelectedOption(limit);
+    setSelectedOption(value);
+    setpatientDuration(days);
 
     setIsOpen(false);
 
@@ -133,7 +146,7 @@ export const Patient = () => {
           <div className="filter">
             <div className="selected-option" onClick={toggleDropdown}>
               <FontAwesomeIcon icon={faHistory} style={{ margin: "10px" }} />
-              {selectedOption ? <div> Recent {selectedOption}</div> : "Recent"}
+              {selectedOption ? <div>  {selectedOption}</div> : "Recent"}
               <FontAwesomeIcon
                 icon={faChevronDown}
                 style={{ marginLeft: "10px" }}
@@ -141,28 +154,47 @@ export const Patient = () => {
             </div>
             {isOpen && (
               <div className="options">
+                 <div
+                  className="option"
+                  onClick={() => handleOptionClick("500","Current Week"," Current Week")}
+                >
+                  Current Week
+                </div>
                 <div
                   className="option"
-                  onClick={() => handleOptionClick("100")}
+                  onClick={() => handleOptionClick("500","Current Month","Current Month")}
+                >
+                  Current Month
+                </div>
+                <div
+                  className="option"
+                  onClick={() => handleOptionClick("100","All","Recent 100")}
                 >
                   Recent 100
                 </div>
                 <div
                   className="option"
-                  onClick={() => handleOptionClick("500")}
+                  onClick={() => handleOptionClick("500","All","Recent 500")}
                 >
                   Recent 500
                 </div>
                 <div
                   className="option"
-                  onClick={() => handleOptionClick("1000")}
+                  onClick={() => handleOptionClick("1000","All","Recent 1000")}
                 >
                   Recent 1000
                 </div>
+               
               </div>
             )}
           </div>
+          <div className="newpatient" 
+           onClick={() => handlePatientNavigation("/patient/newpatient")}
+          >
+          New patient
         </div>
+        </div>
+      
         <form className="patientform" onSubmit={handleSubmit}>
           <input
             type="text"
@@ -195,16 +227,18 @@ export const Patient = () => {
             </thead>
             <tbody>
               {!isSecondAPIDisplayed &&
-                patientslist.map((patient) => (
+                patientslist.map((patient,index) => (
                   <tr
                     key={patient.id}
                     className="table-row"
-                    onClick={() => handleNavigation(
-                      patient.id )}
+                   
                   >
-                    <td>{patient.id}</td>
-                    <td>{patient.patientNumber}</td>
-                    <td>
+                    <td  onClick={() => handleNavigation(
+                      patient.id )}>{index+1}</td>
+                    <td  onClick={() => handleNavigation(
+                      patient.id )}>{patient.patientNumber}</td>
+                    <td  onClick={() => handleNavigation(
+                      patient.id )}>
                       {patient.honorific} {patient.firstName} - {patient.age}{" "}
                       {patient.ageUnit} - {patient.gender}
                     </td>
@@ -214,14 +248,14 @@ export const Patient = () => {
                       <div className="actionbuttons">
                         <div className="actionbutton">
                           {" "}
-                          <FontAwesomeIcon icon={faBox } style={{ color: "#007bff" }} /> Package
+                          <FontAwesomeIcon icon={faBox }  className="custom-icon"/> Package
                         </div>
-                        <div className="actionbutton">
-                          <FontAwesomeIcon icon={faMoneyBill} style={{ color: "#007bff" }} /> OPBill
+                        <div className="actionbutton" onClick={() => handlePatientNavigation("/patient/opbillnew")}>
+                        <FontAwesomeIcon icon={faMoneyBill} className="custom-icon" /> OPBill
                         </div>
                         <div className="actionbutton">
                           {" "}
-                          <FontAwesomeIcon icon={faHospital} style={{ color: "#007bff" }} />
+                          <FontAwesomeIcon icon={faHospital}  className="custom-icon" />
                           IPCase
                         </div>
                       </div>

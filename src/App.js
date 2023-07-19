@@ -29,6 +29,8 @@ import { PatientLabDetails } from "./Modules/Patient/PatientLabDetails";
 import { PatientBilling } from "./Modules/Patient/PatientBilling";
 import { PatientInsurance } from "./Modules/Patient/PatientInsurance";
 import { PatientBirthDetail } from "./Modules/Patient/PatientBirthDetail";
+import { NewPatient } from "./Modules/Patient/NewPatient";
+import { OPBillNew } from "./Modules/Patient/OPBillNew";
 
 function App() {
   return (
@@ -52,21 +54,26 @@ function App() {
             <Route path="/masters" element={<Masters/>} />
             <Route path="/opbilling" element={<OpBilling />} />
             <Route path="/patient" element={<Patient />} />
+            <Route path="/patient/newpatient" element={<NewPatient/>} />
+            <Route path="/patient/opbillnew" element={<OPBillNew />} />
+
+            <Route path="/patient/patientdetails/:patientId" element={<PatientDetails/>} >
+         
+           <Route path="patientvisit" element={<PatientVisit />} />
+           <Route path="patienthistory" element={<PatientHistory/>} />
+           <Route path="patientlabdetails" element={<PatientLabDetails/>} />
+           <Route path="patientbilling" element={<PatientBilling/>} />
+           <Route path="patientinsurance" element={<PatientInsurance/>} />
+           <Route path="patientbirthdetails" element={<PatientBirthDetail/>} />
+           <Route path="patientdetailstab" element={<PatientDetailsTab/>} />
+           <Route path="patientscanningreport" element={<PatientDetailsTab/>} />
+
+         </Route>
             <Route path="/pharmacy" element={<Pharmacy/>} />
             <Route path="/security" element={<Security/>} />
             <Route path="/staff" element={<Staff />} />
-            <Route path="/patient/patientdetails/:patientId" element={<PatientDetails/>} >
-           
-            <Route path="patientvisit" element={<PatientVisit />} />
-            <Route path="patienthistory" element={<PatientHistory/>} />
-            <Route path="patientlabdetails" element={<PatientLabDetails/>} />
-            <Route path="patientbilling" element={<PatientBilling/>} />
-            <Route path="patientinsurance" element={<PatientInsurance/>} />
-            <Route path="patientbirthdetails" element={<PatientBirthDetail/>} />
-            <Route path="patientdetailstab" element={<PatientDetailsTab/>} />
-            <Route path="patientscanningreport" element={<PatientDetailsTab/>} />
 
-          </Route>
+           
             <Route path="/inpatient/inpatientdetails/:inpatientcaseId" element={<InPatientDetails/>} />
             <Route path="/opbilling/opbillingdetails/:opbillid" element={<OpBillingDetails />} />
             <Route path="/staff/staffdetails/:staffid" element={<StaffDetails/>} />
